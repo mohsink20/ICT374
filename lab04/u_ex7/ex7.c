@@ -3,9 +3,9 @@
 #include <stdlib.h>
 #include <sys/wait.h>
 
-int	main(int argc, char* argv[])
+int	main()
 {
-	int n = 5; // number of child processes to create 
+	int n = 5; // number of child processes to create
 
 	for (int i=1; i<=n; i++)
 	{

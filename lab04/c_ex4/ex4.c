@@ -1,23 +1,28 @@
 #include <stdio.h>
-#include <unistd.h>
-#include <sys/wait.h>
+
+int	square(int n)
+{
+	return n * n;
+}
 
 int	main()
 {
-	pid_t	pid = fork();
+  // Declare function pointer
+	int (*fp)(int);
 
-	if (pid == 0)
-	{
-		printf("Child process PID: %d\n", getpid());
-		printf("Child PPID: %d\n", getppid());
-		sleep(100);
-	}
-	else
-	{
-		printf("Parent process PID: %d\n", getpid());
-		printf("Parent waiting for child...\n");
-		wait(NULL);
-		printf("The child has terminated\n");
-	}
+  // Print address of square function
+	printf("Address of square function: %p\n", square);
+
+  // Assign square function to fp
+	fp = square;
+
+  // Call square directly
+	int	num1 = square(10);
+	printf("Direct call: %d\n", num1);
+
+  // Call square indirectly via fp
+	int num2 = fp(10);
+	printf("Indirect call: %d\n", num2);
+
 	return 0;
 }
