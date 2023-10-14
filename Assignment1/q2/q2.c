@@ -3,8 +3,8 @@
  *                the process (user visible part), including text region (program instructions),
  *                data region, heap, stack, command line arguments and process environment region
 
- * author:        HX
- * updated:       2023.09.24
+ * author:        Mohsin Ali Khan
+ * updated:       2023.10.13
  */
 
 #include <stdlib.h>
@@ -18,10 +18,10 @@ extern char **environ;
 
 
 int gx = 10;   // initialised global
-int gy;  // uninitialised global  
+int gy;  // uninitialised global
 char gname1[] = "Hi, there!";
 char *gname2  = "Computer Science";
-const int gc = 100;   
+const int gc = 100;
 int gz;
 
 void printAddress(char *description, void *addr)
@@ -45,7 +45,7 @@ int f1(int x1, int x2, float x3, double x4, char x5, int x6 )
     char    f1_l3;
     char    f1_l3b;
     double  f1_l4;
-    const int     f1_l5; 
+    const int     f1_l5;
     int     f1_l6;
 
     // TO DO:
@@ -65,7 +65,7 @@ int f1(int x1, int x2, float x3, double x4, char x5, int x6 )
     printAddress("&f1_l4", &f1_l4);
     printAddress("&f1_l5", (void*)&f1_l5);
     printAddress("&f1_l6", &f1_l6);
-    
+
     return 0;
 }
 
@@ -84,7 +84,7 @@ void f2()
     // print the addresses of local variables f2_buf and f2_p of function f2
     printAddress("&f2_buf", &f2_buf);
     printAddress("&f2_p", &f2_p);
-    
+
     // print the addresses of heap allocated memory pointed to by p in function f2
     printAddress("f2_p", f2_p);
 
@@ -124,36 +124,36 @@ int main(int argc, char *argv[], char *env[])
     //==== constants and initialised globals ====
     // TO DO:
     // print the addresses of constant gc and string literal "Computer Science"
-    printAddress("&gc", (void*)&gc); 
+    printAddress("&gc", (void*)&gc);
     printAddress("\"Computer Science\"", gname2);
-    
+
     // print the addresses of initialised global variables gx, gname1, gname2
     printAddress("&gx", &gx);
     printAddress("&gname1", &gname1);
     printAddress("&gname2", &gname2);
 
- 
+
     //==== uninitialised globals ====
     // TO DO:
     // print the addresses of uninitialised global variables gy, gz
     printAddress("&gy", &gy);
     printAddress("&gz", &gz);
 
- 
+
     //==== extern variables ====
     // TO DO:
     // print the addresses of extern variable environ
     printAddress("&environ", &environ);
 
- 
+
     //==== formal parameters in function main ====
     // TO DO:
     // print the addresses of formal parameters argc, argv, and env
     printAddress("&argc", &argc);
-    printAddress("&argv", &argv); 
+    printAddress("&argv", &argv);
     printAddress("&env", &env);
-    
- 
+
+
     //==== allocate memory from heap ====
     char *main_p1 = malloc(200);
     char *main_p2 = malloc(10000);
@@ -166,7 +166,7 @@ int main(int argc, char *argv[], char *env[])
     printAddress("&main_p1", &main_p1);
     printAddress("&main_p2", &main_p2);
 
- 
+
     //==== dynamic variables in heap ====
     // TO DO:
     // print the addresses of heap allocated memmory pointed to by main_p1 and main_p2
@@ -183,14 +183,14 @@ int main(int argc, char *argv[], char *env[])
     printAddress("argv start", argv);
     printAddress("argv end", argv+argc);
 
- 
+
     //==== command line arguments ====
     // TO DO:
     // print start and end addresses of the block containing the cmd line arguments 
     printAddress("argv[0] start", argv[0]);
     printAddress("argv[argc-1] end", argv[argc-1] + strlen(argv[argc-1]));
 
- 
+
     // find out the number of environment variables
     while (env[nv]) ++nv;
 
@@ -200,13 +200,13 @@ int main(int argc, char *argv[], char *env[])
     printAddress("env start", env);
     printAddress("env end", env+nv+1);
 
- 
+
     //==== environment ====
     // TO DO:
     // print start and end addresses of the environment variables
     printAddress("env[0] start", env[0]);
     printAddress("env[nv-1] end", env[nv-1] + strlen(env[nv-1]));
 
-    
+
     exit(0);
 }
