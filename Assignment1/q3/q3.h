@@ -1,5 +1,5 @@
-#ifndef MYSHELL_H
-# define MYSHELL_H
+#ifndef Q3_H
+# define Q3_H
 
 #include <stdio.h>
 #include <stdlib.h>

@@ -1,7 +1,7 @@
 CC = gcc
-CFLAGS = -Wall -Werror
+CFLAGS = -Wall -Wextra -Werror
 TARGET = myshell
-SRCS = main.c myshell.c
+SRCS = main.c q3.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(TARGET)
