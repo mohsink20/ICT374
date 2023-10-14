@@ -1,8 +1,6 @@
-This program executes multiple shell commands concurrently using fork() and exec(). (https://github.com/mohsink20)
-
 # Concurrent Command Execution
 
-This program executes multiple shell commands concurrently using fork() and exec().
+This program executes multiple shell commands concurrently using fork() and exec(). (https://github.com/mohsink20)
 
 ## Compiling
 
@@ -38,15 +36,30 @@ Some ways I tested the program:
 
 - Run with valid commands - check all complete successfully 
 
+```
+./myshell /bin/ls /bin/pwd /bin/date
+```
+
 - Run with an invalid command - should see failed execution
+
+```
+./myshell /bin/ls /bin/abcd /bin/date
+```
 
 - Check exit codes - valid commands should exit 0, invalid should be non-zero
 
-- Try very long argument lists - check for crashes or hangs
+```
+./myshell /bin/true /bin/false /bin/ls
+```
 
 - Give invalid arguments - check for clean usage error message
 
+```
+./myshell
+```
+
 - Run simultaneously in multiple terminals - check for conflicts
+
 
 ## Platform Support
 
