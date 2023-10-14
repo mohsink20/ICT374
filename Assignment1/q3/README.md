@@ -1,6 +1,6 @@
-# Concurrent Command Execution
+# Command Execution
 
-This program executes multiple shell commands concurrently using fork() and exec(). (https://github.com/mohsink20)
+This program executes single or multiple shell commands concurrently using fork() and exec(). (https://github.com/mohsink20)
 
 ## Compiling
 
